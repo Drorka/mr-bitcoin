@@ -1,0 +1,11 @@
+.contact-details {
+    display: grid;
+
+    padding: 10px;
+    background-color: darkseagreen;
+    margin-block-start: 10px;
+    
+    a {
+        justify-self: end;
+    }
+}
