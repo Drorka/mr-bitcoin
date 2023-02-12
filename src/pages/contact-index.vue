@@ -1,11 +1,10 @@
 <template>
-    <h1>Index</h1>
-    <!-- <div class="main-container">
+    <div class="main-container">
         <UserMsg />
-        <ContactFilter @filter="onSetFilterBy" />
-        <ContactList @remove="removeContact" v-if="contacts" :contacts="filteredContacts" />
-        <RouterLink to="/contact/edit"><button>Add a Contact</button></RouterLink>
-    </div> -->
+        <!-- <ContactFilter @filter="onSetFilterBy" /> -->
+        <ContactList @remove="removeContact" v-if="contacts" :contacts="contacts" />
+        <!-- <RouterLink to="/contact/edit"><button>Add a Contact</button></RouterLink> -->
+    </div>
 </template>
 
 <script>
@@ -18,28 +17,28 @@ import UserMsg from '@/cmps/user-msg.vue'
 
 export default {
     data() {
-        // return {
-        //     contacts: null,
-        //     filterBy: {},
-        // }
+        return {
+            contacts: null,
+            // filterBy: {},
+        }
     },
-    // async created() {
-    //     this.contacts = await contactService.query()
-    // },
+    async created() {
+        this.contacts = await contactService.getContacts()
+    },
     methods: {
-        // async removeContact(contactId) {
-        //     const msg = {
-        //         txt: `Contact ${contactId} deleted.`,
-        //         type: 'success',
-        //         timeout: 2500,
-        //     }
-        //     await contactService.remove(contactId)
-        //     this.contacts = this.contacts.filter(contact => contact._id !== contactId)
-        //     eventBus.emit('user-msg', msg)
-        // },
-        // onSetFilterBy(filterBy) {
-        //     this.filterBy = filterBy
-        // },
+        async removeContact(contactId) {
+            const msg = {
+                txt: `Contact ${contactId} deleted.`,
+                type: 'success',
+                timeout: 2500,
+            }
+            await contactService.deleteContact(contactId)
+            this.contacts = this.contacts.filter(contact => contact._id !== contactId)
+            eventBus.emit('user-msg', msg)
+        },
+        onSetFilterBy(filterBy) {
+            this.filterBy = filterBy
+        },
     },
     computed: {
         // filteredContacts() {

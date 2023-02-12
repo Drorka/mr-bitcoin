@@ -1,37 +1,35 @@
 <template>
     <section>
-        <h1>List</h1>
-        <!-- <TransitionGroup name="list" tag="ul" class="car-list">
-            <li class="car-preview" v-for="car in cars" :key="car._id">
-                <CarPreview :car="car" />
+        <TransitionGroup name="list" tag="ul" class="contact-list">
+            <li class="contact-preview" v-for="contact in contacts" :key="contact._id">
+                <ContactPreview :contact="contact" />
                 <section class="actions">
-                    <RouterLink :to="`/car/${car._id}`">
+                    <RouterLink :to="`/contact/${contact._id}`">
                         <button>Details</button>
                     </RouterLink>
-                    <RouterLink :to="`/car/edit/${car._id}`">
+                    <RouterLink :to="`/contact/edit/${contact._id}`">
                         <button>Edit</button>
                     </RouterLink>
-                    <button @click="onRemoveCar(car._id)">x</button>
+                    <button @click="onRemoveContact(contact._id)">x</button>
                 </section>
             </li>
-        </TransitionGroup> -->
+        </TransitionGroup>
     </section>
 </template>
 
 <script>
 import ContactPreview from '@/cmps/contact-preview.vue'
 export default {
-    // props: ['cars']
     props: {
-        // contacts: {
-        //     type: Array,
-        //     required: true,
-        // },
+        contacts: {
+            type: Array,
+            required: true,
+        },
     },
     methods: {
-        // onRemoveCar(carId) {
-        //     this.$emit('remove', carId)
-        // },
+        onRemoveContact(contactId) {
+            this.$emit('remove', contactId)
+        },
     },
     components: {
         ContactPreview,

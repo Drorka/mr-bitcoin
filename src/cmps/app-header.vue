@@ -4,6 +4,7 @@
         <nav>
             <RouterLink to="/">Home</RouterLink>
             <RouterLink to="/contact">Contacts</RouterLink>
+            <RouterLink to="/stats">Statistics</RouterLink>
             <RouterLink to="/about">About</RouterLink>
         </nav>
         <span v-if="user">{{user.name}}</span>

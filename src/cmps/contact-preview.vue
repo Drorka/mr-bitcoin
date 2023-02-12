@@ -1,16 +1,16 @@
 <template>
     <article>
-        <h2>Preview</h2>
+        <h3>{{contact.name}}</h3>
     </article>
 </template>
 
 <script>
 export default {
     props: {
-        // contact: {
-        //     type: Object,
-        //     required: true,
-        // }
+        contact: {
+            type: Object,
+            required: true,
+        }
     }
 }
 </script>
