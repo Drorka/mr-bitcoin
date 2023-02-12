@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { storageService } from '@/services/storage.service.js'
+import { utilService } from '@/services/util.service.js'
 
 export const bitcoinService = {
 	getRate,
@@ -26,13 +27,30 @@ async function getRate() {
 
 async function getMarketPriceHistory() {
 	try {
-		const priceHistory =
-			storageService.load(STORAGE_KEY_HISTORY) ||
-			(await axios.get(
+		const priceHistoryByDay = storageService.load(STORAGE_KEY_HISTORY)
+		if (!priceHistoryByDay || priceHistoryByDay.length === 0) {
+			let { data } = await axios.get(
 				'https://api.blockchain.info/charts/market-price?timespan=5months&format=json&cors=true'
-			))
-		storageService.save(STORAGE_KEY_HISTORY, priceHistory)
-		return priceHistory.data
+			)
+			storageService.save(STORAGE_KEY_HISTORY, data.values)
+			return data.values
+		}
+
+		// get formatted days
+		const timestamps = priceHistoryByDay.map((value) => value.x)
+		const formattedDates = timestamps.map((timestamp) =>
+			utilService.getFormattedDate(timestamp)
+		)
+
+		// get prices
+		const prices = priceHistoryByDay.map((value) => value.y)
+
+		// create object to send back to cmp
+		const priceHistory = {
+			labels: formattedDates,
+			datasets: [{ label: 'Prices', data: prices }],
+		}
+		return priceHistory
 	} catch (err) {
 		console.log('Failed to get price history')
 		throw err
