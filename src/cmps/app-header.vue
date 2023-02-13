@@ -1,14 +1,20 @@
 <template>
-    <header>
-        <span>Mr.Bitcoin</span>
+    <header class="app-header full main-layout">
+        <div className="header-container">
+        <div class="logo-container">
+        <span >Mr.Bitcoin</span>
+        </div>
         <nav>
             <RouterLink to="/">Home</RouterLink>
             <RouterLink to="/contact">Contacts</RouterLink>
             <RouterLink to="/stats">Statistics</RouterLink>
             <RouterLink to="/about">About</RouterLink>
         </nav>
-        <span v-if="user">{{user.name}}</span>
-        <span v-if="currRate">Current rate: {{currRate}}</span>
+        <div class="user-info">
+                <span v-if="user">{{ user.name }}</span>
+        </div>
+        <span v-if="rate">1$ = {{ rate }}₿</span>
+        </div>
     </header>
 </template>
 

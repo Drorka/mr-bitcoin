@@ -14,7 +14,7 @@ export default {
 
 <template>
     <AppHeader />
-    <main>
+    <main class="main-layout">
         <RouterView />
     </main>
     <UserMsg />

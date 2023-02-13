@@ -1,8 +1,12 @@
 <template>
-    <section v-if="user">
+    <section class="home-page" v-if="user">
         <h1>Welcome {{user.name}}</h1>
+        <div class="home-page-balance">
         <p>Your current balance is: <span>{{user.balance}}</span></p>
-        <p v-if="currRate">The current rate is: <span>{{currRate}}</span></p>
+        </div>
+        <div class="home-page-rate">
+        <p v-if="currRate">The current bitcoin rate is: 1:<span>{{currRate}}</span></p>
+        </div>
     </section>
 </template>
 

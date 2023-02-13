@@ -1,5 +1,6 @@
 <template>
-    <article>
+    <article class="contact-container">
+        <img :src="'https://robohash.org/' + contact._id" alt="{{contact.name}}" />
         <h3>{{contact.name}}</h3>
     </article>
 </template>

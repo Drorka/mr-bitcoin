@@ -1,7 +1,10 @@
 <template>
-    <div class="main-container">
+    <div class="contact-index-main-container">
+        <section class="contact-index-actions">
         <ContactFilter @filter="onSetFilterBy" />
-        <RouterLink to="/contact/edit"><button>Add a Contact</button></RouterLink>
+        <!-- <div><RouterLink to="/contact/edit"><button>Add a Contact</button></RouterLink></div> -->
+        <div class="add-contact"><button><RouterLink to="/contact/edit">Add a Contact</RouterLink></button></div>
+        </section>
         <ContactList @remove="removeContact" v-if="contacts" :contacts="contacts" />
     </div>
 </template>
@@ -16,26 +19,31 @@ import ContactFilter from '@/cmps/contact-filter.vue'
 export default {
     data() {
         return {
-            contacts: null,
             filterBy: {},
         }
     },
     async created() {
-        this.loadContacts()
+        this.$store.dispatch({type: 'loadContacts'})
     },
     methods: {
-        async loadContacts() {
-        this.contacts = await contactService.getContacts(this.filterBy)
-        },
-        async removeContact(contactId) {
-            const msg = {
-                txt: `Contact ${contactId} deleted.`,
-                type: 'success',
-                timeout: 2500,
-            }
-            await contactService.deleteContact(contactId)
-            this.contacts = this.contacts.filter(contact => contact._id !== contactId)
-            eventBus.emit('user-msg', msg)
+        async removeContact(contactId) {            
+            this.$store.dispatch({type: 'removeContact', contactId})
+                    .then(() => {
+                        const msg = {
+                        txt: `Contact ${contactId} deleted.`,
+                        type: 'success',
+                        timeout: 2500,
+                        }
+                        eventBus.emit('user-msg', msg)
+                    })
+                    .catch(err => {
+                        const msg = {
+                        txt: `Couldn't delete ${contactId}`,
+                        type: 'error',
+                        timeout: 2500,
+                        }
+                        eventBus.emit('user-msg', msg)
+                    })
         },
         onSetFilterBy(filterBy) {
             this.filterBy = filterBy
@@ -43,6 +51,7 @@ export default {
         },
     },
     computed: {
+        contacts() { return this.$store.getters.contacts }
     },
     components: {
         ContactList,
