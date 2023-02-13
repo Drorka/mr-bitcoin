@@ -1,0 +1,14 @@
+.home-page {
+    h1 {
+        margin-top: 8px;
+    }
+    .home-page-balance, .home-page-rate{
+        margin: 4px;
+        p {
+            padding: 8px 0;
+            border-bottom: 2px solid $pinkish;
+            width: 30vw;
+            color: $blackish;
+        }
+    }
+}

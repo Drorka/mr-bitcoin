@@ -1,8 +1,20 @@
+@import "setup/variables";
+@import "setup/mixins";
+
+@import "basics/layout";
+@import "basics/base";
+
+
+@import 'pages/contact-index.scss';
+@import 'pages/contact-details.scss';
+@import 'pages/contact-edit.scss';
+@import 'pages/home-page.scss';
+
+
 @import 'cmps/app-header.scss';
 @import 'cmps/app-footer.scss';
 @import 'cmps/contact-list.scss';
+@import 'pages/chart.scss';
 @import 'cmps/contact-preview.scss';
-@import 'cmps/contact-details.scss';
-@import 'cmps/contact-edit.scss';
 @import 'cmps/contact-filter.scss';
 @import 'cmps/user-msg.scss';

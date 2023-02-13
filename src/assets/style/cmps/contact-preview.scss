@@ -1,4 +1,20 @@
 .contact-preview {
     padding: 10px;
-    background-color: darkseagreen;
+    border: 2px solid $bluish;
+    border-radius: 3px;
+
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1fr, 1fr;
+
+        img {
+            grid-column: 1/2;
+            width: 100px;
+            filter: drop-shadow(4px 8px 16px $bluish)
+        }
+        h3 {
+            grid-column: 2/3;
+            margin-top: 20px;
+        }
+    }
 }

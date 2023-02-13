@@ -1,13 +1,43 @@
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
     height: 5vh;
     padding-inline: 10px;
-    background-color: lightblue;
+    background-color: $blackish;
+    color: $whiteish;
+    
+    .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-    a {
-        margin-inline-start: 1em;
+    
+
+        .logo-container {
+            display: flex;
+            gap: 8px;
+            span {
+                font-size: 1.2rem;
+                font-weight: 700;
+                text-shadow: -1px -1px 1px $pinkish;
+            }
+            img {
+                width: 40px;
+                height: 40px;
+            }    
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .router-link-active{
+            font-weight: 700;
+            text-shadow: -1px -1px 1px $pinkish;
+        }
+
+        a {
+            margin-inline-start: 1em;
+        }
     }
 }

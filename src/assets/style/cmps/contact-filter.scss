@@ -1,7 +1,15 @@
 .contact-filter {
     display: flex;
+    justify-content:flex-start;
     align-items: center;
-    gap: 10px;
-    padding: 10px;
-    background-color: darkgray;
+    gap: 20px;
+    padding: 10px;    
+
+    input{
+        // background-color: $p-clr1;
+        border: 1px solid $pinkish;
+        // border: 1px solid $almost-black;
+        padding: 5px 10px;
+        border-radius: 8px;
+    }
 }
