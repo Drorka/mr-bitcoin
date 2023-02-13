@@ -1,9 +1,8 @@
 <template>
     <div class="main-container">
-        <UserMsg />
-        <!-- <ContactFilter @filter="onSetFilterBy" /> -->
+        <ContactFilter @filter="onSetFilterBy" />
+        <RouterLink to="/contact/edit"><button>Add a Contact</button></RouterLink>
         <ContactList @remove="removeContact" v-if="contacts" :contacts="contacts" />
-        <!-- <RouterLink to="/contact/edit"><button>Add a Contact</button></RouterLink> -->
     </div>
 </template>
 
@@ -13,19 +12,21 @@ import { eventBus } from '@/services/eventBus.service.js'
 
 import ContactList from '@/cmps/contact-list.vue'
 import ContactFilter from '@/cmps/contact-filter.vue'
-import UserMsg from '@/cmps/user-msg.vue'
 
 export default {
     data() {
         return {
             contacts: null,
-            // filterBy: {},
+            filterBy: {},
         }
     },
     async created() {
-        this.contacts = await contactService.getContacts()
+        this.loadContacts()
     },
     methods: {
+        async loadContacts() {
+        this.contacts = await contactService.getContacts(this.filterBy)
+        },
         async removeContact(contactId) {
             const msg = {
                 txt: `Contact ${contactId} deleted.`,
@@ -38,18 +39,14 @@ export default {
         },
         onSetFilterBy(filterBy) {
             this.filterBy = filterBy
+            this.loadContacts()
         },
     },
     computed: {
-        // filteredContacts() {
-        //     const regex = new RegExp(this.filterBy.txt, 'i')
-        //     return this.contacts.filter(contact => regex.test(contact.vendor))
-        // },
     },
     components: {
         ContactList,
         ContactFilter,
-        UserMsg,
     },
 }
 </script>

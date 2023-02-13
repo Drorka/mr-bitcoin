@@ -1,33 +1,56 @@
 <template>
-    <h1>Edit</h1>
-    <!-- <form @submit.prevent="save" v-if="contact" class="contact-edit">
-        <input type="text" v-model="contact.vendor">
-        <input type="number" v-model.number="contact.speed">
-        <button>Save</button>
-    </form> -->
+    <form
+        @submit.prevent="onSave"
+        v-if="contact"
+        class="contact-edit main-layout"
+    >
+        <h1>{{ getTitle }}</h1>
+        <img :src="'https://robohash.org/' + contact.name" alt="" />
+        <input
+        type="text"
+        v-model="contact.name"
+        placeholder="Enter contact name..."
+        />
+        <input
+        type="text"
+        v-model="contact.email"
+        placeholder="Enter contact email..."
+        />
+        <input
+        type="text"
+        v-model.number="contact.phone"
+        placeholder="Enter contact phone..."
+        />
+        <button class="primary">Save</button>
+    </form>
 </template>
 
 <script>
 import { contactService } from '@/services/contact.service.js'
 export default {
     data() {
-        // return {
-        //     contact: null,
-        // }
+        return {
+        contact: null,
+        }
     },
-    // async created(){
-    //     const contactId = this.$route.params._id
-    //     if(contactId) {
-    //         this.contact = await contactService.get(contactId)
-    //     } else {
-    //         this.contact = contactService.getEmptyContact()
-    //     }
-    // },
+    async created() {
+        const contactId = this.$route.params._id
+        if (contactId) {
+        this.contact = await contactService.getContactById(contactId)
+        } else {
+        this.contact = contactService.getEmptyContact()
+        }
+    },
     methods: {
-        // async save() {
-        //     await contactService.save(this.contact)
-        //     this.$router.push('/contact')
-        // }
+        async onSave() {
+        await contactService.saveContact(this.contact)
+        this.$router.push('/contact')
+        },
+    },
+    computed:{
+        getTitle(){
+            return  (this.contact._id ? 'Edit' : 'Add') + ' Contact'
+        }
     }
 }
 </script>

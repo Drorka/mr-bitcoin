@@ -1,9 +1,10 @@
 <template>
-    <div class="car-filter">
-        <p>Search</p>
+    <div class="contact-filter full">
+        <p class="large">Search</p>
         <input @input="onFilter" v-model="filterBy.txt" type="text">
     </div>
 </template>
+
 
 <script>
 export default {
