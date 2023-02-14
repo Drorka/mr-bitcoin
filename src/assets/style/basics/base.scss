@@ -33,10 +33,7 @@ h1{
     font-size: 1.5rem;
     // line-height: 56px;
     font-family: 'Segoe UI';
-    &.large{
-        font-size: 1.7rem;
-        // line-height: 100px;
-    }
+    text-shadow: -1px -1px 1px $bluish;
 }
 h2{
     font-size: 1.3rem;
@@ -97,7 +94,7 @@ button {
     border-radius: 3px;
     height: fit-content;
     width: fit-content;
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
 

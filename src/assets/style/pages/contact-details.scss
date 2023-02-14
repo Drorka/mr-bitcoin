@@ -1,11 +1,23 @@
 .contact-details {
     display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(5, 60px);
+    justify-items: start;
+    gap: 5px;
+    padding-top: 24px;
 
-    padding: 10px;
-    background-color: darkseagreen;
-    margin-block-start: 10px;
+    .name, .email, .phone {
+        grid-column: 1/2;
+    }
+    
+    img {
+        grid-column: 2/3;
+        grid-row: 1;
+        max-width: 250px;
+    }
     
     a {
-        justify-self: end;
+        grid-column:1/2;
+        grid-row: 5/6;
     }
 }
