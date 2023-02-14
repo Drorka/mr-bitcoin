@@ -39,7 +39,7 @@ export const contactStore = {
 	actions: {
 		async loadContacts({ commit }) {
 			try {
-				const contacts = await contactService.getContacts()
+				const contacts = await contactService.query()
 				commit({ type: 'setContacts', contacts })
 			} catch (err) {
 				console.log('Failed to load contacts')
@@ -49,7 +49,7 @@ export const contactStore = {
 		async removeContact({ commit }, payload) {
 			commit(payload)
 			try {
-				await contactService.deleteContact(payload.contactId)
+				await contactService.remove(payload.contactId)
 				commit({ type: 'clearRemoveContact' })
 			} catch (err) {
 				commit({ type: 'undoRemoveContact' })
@@ -60,7 +60,7 @@ export const contactStore = {
 			console.log('saveContact from store', contact)
 			const actionType = contact._id ? 'updateContact' : 'addContact'
 			try {
-				const savedContact = await contactService.saveContact(contact)
+				const savedContact = await contactService.save(contact)
 				commit({ type: actionType, contact: savedContact })
 			} catch (err) {
 				console.log('Failed to save contact')
