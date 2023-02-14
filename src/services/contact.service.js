@@ -3,7 +3,6 @@ import { storageService } from './storage.service'
 import { utilService } from './util.service'
 
 const STORAGE_KEY_CONTACT = 'contactDB'
-
 _createContacts()
 
 export const contactService = {

@@ -5,7 +5,7 @@
         <span >Mr.Bitcoin</span>
         </div>
         <nav>
-            <RouterLink to="/">Home</RouterLink>
+            <RouterLink to="/home">Home</RouterLink>
             <RouterLink to="/contact">Contacts</RouterLink>
             <RouterLink to="/stats">Statistics</RouterLink>
             <RouterLink to="/about">About</RouterLink>
@@ -19,19 +19,19 @@
 </template>
 
 <script>
-import { userService } from '../services/user.service'
 import { bitcoinService } from '../services/bitcoin.service'
 
 export default {
     data() {
         return {
-            user: null,
             currRate: null,
         }
     },
     async created() {
-        this.user = userService.getUser()
         this.currRate = await bitcoinService.getRate()
+    },
+    computed: {
+        user() { return this.$store.getters.user }
     },
 }
 </script>

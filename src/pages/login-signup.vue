@@ -1,0 +1,70 @@
+<template>
+    <section class="login-signup main-layout">
+        <form @submit.prevent="onLogin"
+            v-if="user"
+            class="login-signup-form">
+            <h1>Welcome to Mr.Bitcoin!</h1>
+            <div class="input-container">
+                <label for="name">Name: </label>
+                <input
+                type="text"
+                v-model="user.name"
+                placeholder="Username"
+                />
+            </div>
+            <button class="btn-pinkish btn-login">Login / Signup</button>
+        </form>
+    </section>
+
+</template>
+
+<script>
+import { userService } from '../services/user.service.js'
+import { eventBus } from '@/services/eventBus.service.js'
+
+
+export default {
+    data() {
+        return {
+            user: null,
+        }
+    },
+    async created() {
+        this.user = userService.getEmptyCredentials()
+    },
+    methods: {
+        async onLogin() {
+        console.log('user from cmp', this.user);
+        const userToLogin = {...this.user}
+        console.log('userToLogin',userToLogin);
+        this.$store.dispatch({type: 'loginSignup', credentials: userToLogin})
+            .then((user) => {
+                const msg = {
+                        txt: `User logged in.`,
+                        type: 'success',
+                        timeout: 2500,
+                        }
+                        eventBus.emit('user-msg', msg)
+                        this.$router.push('/home')
+            })
+            .catch(err => {
+                const msg = {
+                        txt: `Couldn't log in`,
+                        type: 'error',
+                        timeout: 2500,
+                        }
+                        eventBus.emit('user-msg', msg)
+            })
+        },
+    },
+    computed:{
+        // getTitle(){
+        //     return  (this.contactToEdit._id ? 'Edit' : 'Add') + ' Contact'
+        // }
+    }
+}
+</script>
+
+<style>
+
+</style>
