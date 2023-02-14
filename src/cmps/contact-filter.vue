@@ -1,5 +1,5 @@
 <template>
-    <div class="contact-filter full">
+    <div class="contact-filter">
         <p class="large">Search</p>
         <input @input="onFilter" v-model="filterBy.txt" type="text">
     </div>

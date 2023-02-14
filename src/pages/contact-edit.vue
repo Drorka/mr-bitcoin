@@ -5,23 +5,33 @@
         class="contact-edit main-layout"
     >
         <h1>{{ getTitle }}</h1>
-        <img :src="'https://robohash.org/' + contactToEdit.name" alt="" />
-        <input
-        type="text"
-        v-model="contactToEdit.name"
-        placeholder="Enter contact name..."
-        />
-        <input
-        type="text"
-        v-model="contactToEdit.email"
-        placeholder="Enter contact email..."
-        />
-        <input
-        type="text"
-        v-model.number="contactToEdit.phone"
-        placeholder="Enter contact phone..."
-        />
-        <button class="primary">Save</button>
+        <img :src="'https://robohash.org/' + contactToEdit._id" alt="" />
+        <div class="input-container name">
+            <label for="name">Name: </label>
+            <input
+            type="text"
+            v-model="contactToEdit.name"
+            placeholder="Enter contact name..."
+            />
+        </div>
+        <div class="input-container email">
+            <label for="name">Email: </label>
+            <input
+            type="text"
+            v-model="contactToEdit.email"
+            placeholder="Enter contact email..."
+            />
+        </div>
+        <div class="input-container phone">
+            <label for="name">Phone: </label>
+            <input
+            type="text"
+            v-model.number="contactToEdit.phone"
+            placeholder="Enter contact phone..."
+            
+            />
+        </div>
+        <button class="btn-bluish btn-save">Save</button>
     </form>
 </template>
 

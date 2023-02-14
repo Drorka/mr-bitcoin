@@ -3,7 +3,7 @@
         <section class="contact-index-actions">
         <ContactFilter @filter="onSetFilterBy" />
         <!-- <div><RouterLink to="/contact/edit"><button>Add a Contact</button></RouterLink></div> -->
-        <div class="add-contact"><button><RouterLink to="/contact/edit">Add a Contact</RouterLink></button></div>
+        <div class="add-contact"><button class="btn-pinkish"><RouterLink to="/contact/edit">Add a Contact</RouterLink></button></div>
         </section>
         <ContactList @remove="removeContact" v-if="contacts" :contacts="contacts" />
     </div>

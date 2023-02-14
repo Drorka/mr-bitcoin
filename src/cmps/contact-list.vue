@@ -5,12 +5,12 @@
                 <ContactPreview :contact="contact" />
                 <section class="actions">
                     <RouterLink :to="`/contact/${contact._id}`">
-                        <button>Details</button>
+                        <button class="btn-bluish">Details</button>
                     </RouterLink>
                     <RouterLink :to="`/contact/edit/${contact._id}`">
-                        <button>Edit</button>
+                        <button  class="btn-bluish">Edit</button>
                     </RouterLink>
-                    <button @click="onRemoveContact(contact._id)">x</button>
+                    <button class="btn-bluish" @click="onRemoveContact(contact._id)">x</button>
                 </section>
             </li>
         </TransitionGroup>

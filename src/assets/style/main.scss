@@ -1,16 +1,18 @@
+// setup
 @import "setup/variables";
 @import "setup/mixins";
 
+// basics
 @import "basics/layout";
 @import "basics/base";
 
-
+// pages
+@import 'pages/home-page.scss';
 @import 'pages/contact-index.scss';
 @import 'pages/contact-details.scss';
 @import 'pages/contact-edit.scss';
-@import 'pages/home-page.scss';
 
-
+// cmps
 @import 'cmps/app-header.scss';
 @import 'cmps/app-footer.scss';
 @import 'cmps/contact-list.scss';

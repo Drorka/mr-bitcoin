@@ -1,8 +1,26 @@
 footer {
-    display: flex;
-    align-items: center;
     height: 5vh;
     padding-inline: 10px;
     background-color: $pinkish;
     color: $whiteish;
+
+    .footer-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo-container {
+            display: flex;
+            gap: 8px;
+            span {
+                font-size: 1.2rem;
+                font-weight: 700;
+                text-shadow: -1px -1px 1px $bluish;
+            }
+            img {
+                width: 40px;
+                height: 40px;
+            }    
+        }
+    }
 }

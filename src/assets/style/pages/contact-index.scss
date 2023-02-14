@@ -1,18 +1,14 @@
 .contact-index-main-container {
+    padding-top: 8px;
+
     .contact-index-actions {
         width: 100%;
-        padding: 0 10px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
 
         .add-contact {
             justify-self: end;
             align-self:center;
-
-            button {
-                background-color: $pinkish;
-                color: $whiteish;
-            }
         }
 
     }
