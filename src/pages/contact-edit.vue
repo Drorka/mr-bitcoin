@@ -48,7 +48,7 @@ export default {
     async created() {
         const contactId = this.$route.params._id
         if (contactId) {
-        this.contactToEdit = await contactService.getContactById(contactId)
+        this.contactToEdit = await contactService.getById(contactId)
         } else {
         this.contactToEdit = contactService.getEmptyContact()
         }
