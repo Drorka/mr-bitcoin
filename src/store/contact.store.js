@@ -37,9 +37,9 @@ export const contactStore = {
 		},
 	},
 	actions: {
-		async loadContacts({ commit }) {
+		async loadContacts({ commit }, { filterBy }) {
 			try {
-				const contacts = await contactService.query()
+				const contacts = await contactService.query(filterBy)
 				commit({ type: 'setContacts', contacts })
 			} catch (err) {
 				console.log('Failed to load contacts')

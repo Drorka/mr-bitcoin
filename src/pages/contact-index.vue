@@ -50,8 +50,7 @@ export default {
                     })
         },
         onSetFilterBy(filterBy) {
-            this.filterBy = filterBy
-            this.loadContacts()
+            this.$store.dispatch({ type: "loadContacts", filterBy })
         },
     },
     computed: {
