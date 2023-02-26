@@ -27,6 +27,8 @@ export const userService = {
 	logout,
 	getEmptyCredentials,
 	getLoggedinUser,
+	transferFunds,
+	getTransactions,
 }
 
 async function get(userId) {
@@ -100,6 +102,27 @@ function logout() {
 function _saveLoggedinUser(user) {
 	sessionStorage.setItem('loggedinUser', JSON.stringify(user))
 }
+
+async function transferFunds(contactId, contactName, amount) {
+	const currUser = getLoggedinUser()
+	console.log('service curr user before', currUser.balance)
+	if (currUser.balance < amount) {
+		throw new Error('No sufficient balance')
+	}
+	const transaction = {
+		toId: contactId,
+		to: contactName,
+		at: Date.now(),
+		amount: amount,
+	}
+	currUser.transactions.push(transaction)
+	currUser.balance -= amount
+	console.log('service curr user after', currUser.balance)
+	_saveLoggedinUser(currUser)
+	return currUser.balance
+}
+
+function getTransactions() {}
 
 function _createUsers() {
 	let users = storageService.load(STORAGE_KEY_USER)
