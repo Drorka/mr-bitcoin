@@ -19,7 +19,6 @@ body {
     background-color: $whiteish;
 }
 
-
 h1,
 h2,
 h3,
@@ -128,4 +127,10 @@ button {
             background-color:$pinkish-active;
         }
     }
+}
+
+.clean-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }

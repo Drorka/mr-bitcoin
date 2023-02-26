@@ -1,0 +1,19 @@
+.transaction-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows:  repeat(4, 1fr);
+    align-items: center;
+    
+    .transaction-list-header {
+        font-weight: 700;
+        font-size: 1.2rem;
+        border-radius: 0;
+        border-bottom: 1px solid $blackish;
+    }
+    
+    .transaction-preview {
+        grid-column: 1/4;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

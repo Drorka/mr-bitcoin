@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import {userService} from '../services/user.service'
 import { eventBus } from '@/services/eventBus.service.js'
 
 export default {
@@ -29,9 +28,6 @@ export default {
         return {
             amount: null,
         }
-    },
-    async created() {
-        // this.user = userService.getEmptyCredentials()
     },
     methods: {
         onTransfer() {

@@ -10,6 +10,10 @@
                 <span class="tile-name">Your balance</span>
                 <span class="tile-data">&#8383;{{user.balance}}</span>
             </div>
+            <div class="tile-transactions">
+                <span class="tile-name">Latest transactions</span>
+                <TransactionList/>
+            </div>
         </div>
             <div class="user-img-container">
                 <img  src="../assets/img/cryptocurrency-g1d7e4b128_1280.jpg" alt="bitcoin">
@@ -20,6 +24,8 @@
 <script>
 import { userService } from '../services/user.service'
 import { bitcoinService } from '../services/bitcoin.service'
+import TransactionList from '../cmps/transaction-list.vue'
+
 
 export default {
     data() {
@@ -29,12 +35,13 @@ export default {
     },
     async created() {
         this.currRate = await bitcoinService.getRate()
-        // this.priceHistory = await bitcoinService.getMarketPriceHistory()
-        // this.avgBlockSize = await bitcoinService.getAvgBlockSize()
     },
     computed: {
         user() { return this.$store.getters.user }
     },
+    components: {
+        TransactionList
+    }
 }
 </script>
 

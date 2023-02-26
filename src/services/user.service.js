@@ -122,7 +122,10 @@ async function transferFunds(contactId, contactName, amount) {
 	return currUser.balance
 }
 
-function getTransactions() {}
+function getTransactions() {
+	const currUser = getLoggedinUser()
+	return currUser.transactions
+}
 
 function _createUsers() {
 	let users = storageService.load(STORAGE_KEY_USER)
