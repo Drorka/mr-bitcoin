@@ -5,14 +5,17 @@
             class="login-signup-form">
             <h1>Welcome to Mr.Bitcoin!</h1>
             <div class="input-container">
-                <label for="name">Name: </label>
+                <div class="login-img-container">
+                    <img  src="../assets/img/bitcoin-gd7e99d74e_1280.png" alt="bitcoin">
+                </div>
+                <!-- <label for="name">Name: </label> -->
                 <input
                 type="text"
                 v-model="user.name"
-                placeholder="Username"
+                placeholder="Enter username"
                 />
+                <button class="btn-pinkish btn-login">Login / Signup</button>
             </div>
-            <button class="btn-pinkish btn-login">Login / Signup</button>
         </form>
     </section>
 
@@ -45,7 +48,7 @@ export default {
                         timeout: 2500,
                         }
                         eventBus.emit('user-msg', msg)
-                        this.$router.push('/home')
+                        this.$router.push('/user')
             })
             .catch(err => {
                 const msg = {

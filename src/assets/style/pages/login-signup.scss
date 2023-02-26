@@ -6,14 +6,26 @@
         flex-direction: column;
         gap: 12px;
         align-items: center;
-
+        
         .input-container {
             display: flex;
-            gap: 4px;
+            flex-direction: column;
+            gap: 12px;
             align-items: center;
-        }
+            margin-top: 8px;
+            padding: 0 0 30px 0;
+            box-shadow: 0 0 3px 3px rgba(118, 118, 118, 0.419);
+            border-radius: 8px;
 
-        .btn-login {
+            .login-img-container {
+                display: block;
+                max-width: 400px;
+                margin: auto;
+            }
+            
+            input {
+                line-height: 1.3rem;
+            }
 
         }
     }
