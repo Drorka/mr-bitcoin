@@ -27,13 +27,14 @@ async function getRate() {
 
 async function getMarketPriceHistory() {
 	try {
-		const priceHistoryByDay = storageService.load(STORAGE_KEY_HISTORY)
+		let priceHistoryByDay = storageService.load(STORAGE_KEY_HISTORY)
 		if (!priceHistoryByDay || priceHistoryByDay.length === 0) {
 			let { data } = await axios.get(
 				'https://api.blockchain.info/charts/market-price?timespan=1months&format=json&cors=true'
 			)
 			storageService.save(STORAGE_KEY_HISTORY, data.values)
-			return data.values
+			priceHistoryByDay = data.values
+			// return data.values
 		}
 
 		// get formatted days
@@ -59,7 +60,7 @@ async function getMarketPriceHistory() {
 
 async function getAvgBlockSize() {
 	try {
-		const avgBlockSize =
+		let avgBlockSize =
 			storageService.load(STORAGE_KEY_SIZE) ||
 			(await axios.get(
 				'https://api.blockchain.info/charts/avg-block-size?timespan=1months&format=json&cors=true'

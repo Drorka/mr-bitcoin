@@ -1,19 +1,25 @@
 <template>
     <header class="app-header full main-layout">
         <div className="header-container">
-        <div class="logo-container">
-        <span >Mr.Bitcoin</span>
-        </div>
-        <nav>
-            <RouterLink to="/home">Home</RouterLink>
-            <RouterLink to="/contact">Contacts</RouterLink>
-            <RouterLink to="/stats">Statistics</RouterLink>
-            <RouterLink to="/about">About</RouterLink>
-        </nav>
-        <div class="user-info">
-                <span v-if="user">{{ user.name }}</span>
-        </div>
-        <span v-if="rate">1$ = {{ rate }}₿</span>
+            <div class="logo-container">
+            <span >Mr.Bitcoin</span>
+            </div>
+            <nav>
+                <RouterLink to="/">Home</RouterLink>
+                <RouterLink to="/contact">Contacts</RouterLink>
+                <RouterLink to="/stats">Statistics</RouterLink>
+                <!-- <RouterLink to="/about">About</RouterLink> -->
+            </nav>
+            <!-- <div class="login-logout">
+            </div> -->
+            <div class="user-info">
+                <!-- <span v-if="user">{{ user.name }}</span> -->
+                <RouterLink v-if="user" to="/user">{{ user.name }}</RouterLink>
+                <!-- <button class="btn-pinkish btn-logout" v-if="user">Logout</button> -->
+                <RouterLink v-if="user" to="/login">Logout</RouterLink>
+                <RouterLink v-if="!user" to="/login">Login</RouterLink>
+            </div>
+            <span v-if="rate">1$ = {{ rate }}₿</span>
         </div>
     </header>
 </template>

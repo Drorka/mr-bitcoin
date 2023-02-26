@@ -1,12 +1,26 @@
 <template>
-    <section class="home-page" v-if="user">
-        <h1>Welcome {{user.name}}</h1>
-        <div class="home-page-balance">
-        <p>Your current balance is: &#8383;<span>{{user.balance}}</span></p>
+    <section class="home-page full main-layout">
+        <section class="home-page-container">
+        <h1 class="hero-title">We're here to help you achieve financial success</h1>
+        <p class="hero-desc">Let's talk about money. Your money. And making more of it. Welcome to Mr.Bitcoin, where the power of money is powerful. And extremely desirable.
+            <RouterLink to="/login">
+            <button class="btn-pinkish start-btn">Get Started Now</button>
+            </RouterLink>
+        </p>
+        <div class="home-page-tiles">
+            <div class="tile-rate">
+                <span class="tile-name">Rate</span>
+                <span class="tile-data">$42.74</span>
+            </div>
+            <div class="tile-size">
+                <span class="tile-name">Average size</span>
+                <span class="tile-data">6.23MB</span>
+            </div>
+            <div class="tile-price">
+            </div>
         </div>
-        <div class="home-page-rate">
-        <p v-if="currRate">The current bitcoin rate is: &#36; 1:<span>{{currRate}}</span></p>
-        </div>
+
+        </section>
     </section>
 </template>
 
