@@ -1,14 +1,79 @@
 .home-page {
-    padding-top: 24px;
+    background-color: $blackish;
 
-    .home-page-balance, .home-page-rate{
-        margin: 4px;
-        p {
+    .home-page-container {
+        display: grid;
+        gap: 8px;
+        margin: 8px;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        
+        h1 {
+            grid-column: 1/2;
+            color: $whiteish;
+            text-shadow: -1px -1px 1px $bluish;
+            font-size: 4.2rem;
+            font-weight: 400;
+            margin-right: 40px;
+        }
+        
+        .hero-desc {
+            grid-column: 2/3;
+            color: $whiteish;
+            align-self:center;
             font-size: 1.2rem;
-            padding: 8px 0;
-            border-bottom: 2px solid $pinkish;
-            width: 35vw;
-            color: $blackish;
+
+            .start-btn {
+                margin: 20px 0;
+                height: 2.5rem;
+                width: 100%;
+            }
+        }
+
+        .home-page-tiles {
+            grid-column: 1/3;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 10px;
+
+            * {
+                border-radius: 8px;
+                padding: 8px;
+            }
+
+            .tile-name {
+                font-size: 1.5rem;
+            }
+            
+            .tile-data {
+                align-self: flex-end;
+                font-size: 2.5rem;
+                font-weight: 600;
+            }
+
+            .tile-rate {
+                grid-column: 1/2;
+                background-color: $pinkish-bgc;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                
+            }
+            
+            .tile-size {
+                grid-column: 1/2;
+                background-color: $bluish;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                
+            }
+
+            .tile-price {
+                grid-column: 2/3;
+                grid-row: 1/3;
+                background-color: rgba(255, 255, 255, 0.129);
+            }
         }
     }
 }

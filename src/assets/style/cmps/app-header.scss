@@ -9,8 +9,6 @@ header {
         align-items: center;
         justify-content: space-between;
 
-    
-
         .logo-container {
             display: flex;
             gap: 8px;
@@ -38,6 +36,12 @@ header {
 
         a {
             margin-inline-start: 1em;
+        }
+
+        .user-info {
+            display: flex;
+            gap: 8px;
+            align-items: center;
         }
     }
 }
