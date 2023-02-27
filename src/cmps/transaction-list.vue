@@ -1,11 +1,11 @@
 <template>
     <ul class="transaction-list clean-list">
-        <span class="transaction-list-header">Contact</span>
+        <span v-if="!contact" class="transaction-list-header">Contact</span>
         <span class="transaction-list-header">Date</span>
         <span class="transaction-list-header">Amount</span>
         
         <li class="transaction-preview" v-for="transaction in transactions" v-bind:key="transaction.at">
-        <span>{{ transaction.to }}</span>
+        <span v-if="!contact">{{ transaction.to }}</span>
         <span>{{formatDate(transaction) }}</span>
         <span>${{ transaction.amount }}</span>
         </li>

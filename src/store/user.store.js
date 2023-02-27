@@ -28,6 +28,16 @@ export const userStore = {
 				throw err
 			}
 		},
+		async logout({ commit }) {
+			try {
+				userService.logout()
+				const user = null
+				commit({ type: 'setUser', user })
+			} catch (err) {
+				console.log('Failed to logout', err)
+				throw err
+			}
+		},
 		deposit(context, { amount }) {
 			console.log('context', context)
 			return userService.updateBalance(amount).then((balance) => {

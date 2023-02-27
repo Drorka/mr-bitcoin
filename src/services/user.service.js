@@ -95,6 +95,7 @@ function getLoggedinUser() {
 }
 
 function logout() {
+	console.log('service logout')
 	sessionStorage.removeItem('loggedinUser')
 	return Promise.resolve()
 }
