@@ -16,7 +16,12 @@
                 <span class="tile-name">Average size</span>
                 <span class="tile-data">6.23MB</span>
             </div>
-            <div class="tile-price">
+            <div class="tile-chart">
+                <!-- <span class="tile-name">$3,852.75</span> -->
+                <TileChart/>
+                <!-- <img src="../assets/img/thought-catalog-I0TDRP0fj6Y-unsplash.jpg" alt="bitcoin"> -->
+                <!-- <img src="../assets/img/aleksi-raisa-y-BIhyjjHv4-unsplash.jpg" alt="bitcoin"> -->
+                <!-- <img src="../assets/img/dmitry-demidko-OG3A-ilG8AY-unsplash.jpg" alt="bitcoin"> -->
             </div>
         </div>
 
@@ -27,6 +32,7 @@
 <script>
 import { userService } from '../services/user.service'
 import { bitcoinService } from '../services/bitcoin.service'
+import TileChart from '../cmps/home-tile-chart.vue'
 
 export default {
     data() {
@@ -42,6 +48,9 @@ export default {
     computed: {
         user() { return this.$store.getters.user }
     },
+    components: {
+        TileChart
+    }
 }
 </script>
 

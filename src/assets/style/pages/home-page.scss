@@ -13,7 +13,7 @@
             color: $whiteish;
             text-shadow: -1px -1px 1px $bluish;
             font-size: 4.2rem;
-            font-weight: 400;
+            font-weight: 600;
             margin-right: 40px;
         }
         
@@ -69,10 +69,31 @@
                 
             }
 
-            .tile-price {
+            img {
+                object-fit: cover;
+                grid-column: 2/3;
+                grid-row: 1/3;
+                justify-self: center;
+                padding: 0;
+                box-shadow: 0px 0px 20px 9px rgb(0 0 0 / 41%);
+                border:none;
+                border-radius: 8px;
+                max-width: 70%;
+            }
+
+            .tile-chart {
                 grid-column: 2/3;
                 grid-row: 1/3;
                 background-color: rgba(255, 255, 255, 0.129);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                #line-chart {
+                    padding: 0;
+                    max-height: 40vh;
+                }
+
             }
         }
     }
