@@ -20,12 +20,12 @@ function getRandomInt(num1, num2) {
 }
 
 function getFormattedDate(timeStamp) {
-	const dateFormat = new Date(timeStamp * 1000)
+	// const dateFormat = new Date(timeStamp * 1000)
 	const formattedDate =
-		dateFormat.getDate() +
+		timeStamp.getDate() +
 		'/' +
-		(dateFormat.getMonth() + 1) +
+		(timeStamp.getMonth() + 1) +
 		'/' +
-		dateFormat.getFullYear()
+		timeStamp.getFullYear()
 	return formattedDate
 }

@@ -106,7 +106,6 @@ function _saveLoggedinUser(user) {
 
 async function transferFunds(contactId, contactName, amount) {
 	const currUser = getLoggedinUser()
-	console.log('service curr user before', currUser.balance)
 	if (currUser.balance < amount) {
 		throw new Error('No sufficient balance')
 	}
@@ -118,7 +117,6 @@ async function transferFunds(contactId, contactName, amount) {
 	}
 	currUser.transactions.push(transaction)
 	currUser.balance -= amount
-	console.log('service curr user after', currUser.balance)
 	_saveLoggedinUser(currUser)
 	return currUser
 }
