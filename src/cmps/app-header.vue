@@ -2,7 +2,7 @@
     <header class="app-header full main-layout">
         <div className="header-container">
             <div class="logo-container">
-            <span >Mr.Bitcoin</span>
+            <span><RouterLink to="/">Mr.Bitcoin</RouterLink></span>
             </div>
             <nav>
                 <RouterLink to="/">Home</RouterLink>

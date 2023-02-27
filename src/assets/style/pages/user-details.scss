@@ -70,3 +70,70 @@
         box-shadow: -20px -20px 20px 20px rgb(255 255 255 / 41%);
     }
 }
+
+@media (max-width:$break-narrow) {
+    .user-details {
+        padding-top: 24px;
+    
+        .user-details-balance, .user-details-rate{
+            margin: 4px;
+            p {
+                font-size: 1.2rem;
+                padding: 8px 0;
+                border-bottom: 2px solid $pinkish;
+                width: 35vw;
+                color: $blackish;
+            }
+        }
+    
+        .user-details-tiles {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            color: $whiteish;
+            margin-bottom: 8px;
+    
+            * {
+                border-radius: 8px;
+                padding: 8px;
+            }
+    
+            .tile-name {
+                font-size: 1.5rem;
+            }
+            
+            .tile-data {
+                align-self: flex-end;
+                font-size: 2.5rem;
+                font-weight: 600;
+            }
+
+            .tile-rate {
+                background-color: $pinkish-bgc;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                
+            }
+            
+            .tile-balance {
+                background-color: $bluish;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                
+            }
+    
+            .tile-transactions {
+                background-color: rgba(0, 0, 0, 0.129);
+                color: $blackish;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    
+        .user-img-container {
+            display: none;
+        }
+    }
+}

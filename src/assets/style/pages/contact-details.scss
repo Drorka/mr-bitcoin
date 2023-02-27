@@ -1,4 +1,3 @@
-
 .contact-details {
     display: grid;
     grid-template-columns: 0.7fr 1fr 1fr;
@@ -52,39 +51,36 @@
         justify-self: end;
         align-self: flex-end;
     }
-
-
 }
 
-//////////////////////////////////////////
-// .contact-details {
-//     display: grid;
-//     grid-template-columns: 1fr 2fr;
-//     grid-template-rows: repeat(5, 60px);
-//     justify-items: start;
-//     gap: 5px;
-//     padding-top: 24px;
-
-//     .name, .email, .phone {
-//         grid-column: 1/2;
-//     }
+@media (max-width:$break-narrow) {
+    .contact-details {
+        // display: grid;
+        // grid-template-columns: 1fr 1fr;
+        // grid-template-rows: repeat(5, 60px);
+        justify-items: start;
+        gap: 8px;
+        padding-top: 24px;
+        display: flex;
+        flex-direction: column;
     
-//     img {
-//         grid-column: 2/3;
-//         grid-row: 1;
-//         max-width: 250px;
-//     }
+        img {
+            max-width: 30vw;
+            justify-self: flex-end;
+        }
 
-//     .contact-actions {
-//         grid-column: 1/3;
-//         display: flex;
-//         justify-content: space-between;
-//         width: 100%;
+        .transfer-funds {
+            width: 100%;
+    
+            .transfer-form {
+                display: flex;
+                gap: 8px;
+            }
+        }
         
-//         .transfer-form {
-//             display: flex;
-//             gap: 8px;
-//         }
-//     }
-    
-// }
+        a {
+            justify-self: end;
+            align-self: flex-end;
+        }
+    }
+}

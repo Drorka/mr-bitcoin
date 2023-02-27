@@ -39,3 +39,47 @@
 .list-leave-active {
   position: absolute;
 }
+
+@media (max-width:$break-narrow) {
+  .contact-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 10px;
+    padding: 10px 0;
+    margin: 0;
+    list-style-type: none;
+
+      .actions{
+      color: $blackish;
+      display: flex;
+      justify-content: end;
+      gap: 15px;
+      padding: 0;
+      margin-top: 4px;
+
+      .preview-icon{
+        cursor: pointer;
+        font-size: 1.7rem;
+      }
+  }
+}
+
+.list-move,
+/* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.list-leave-active {
+  position: absolute;
+}
+}

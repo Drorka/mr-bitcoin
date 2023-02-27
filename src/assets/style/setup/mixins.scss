@@ -64,26 +64,26 @@
     }
 }
 
-@mixin input($type: regular, $padding: em(12px) em(44px), $width: 190px, $borderClr: $clr1) {
-    width: $width;
-    padding: $padding;
-    border: 1px solid $borderClr;
+// @mixin input($type: regular, $padding: em(12px) em(44px), $width: 190px, $borderClr: $clr1) {
+//     width: $width;
+//     padding: $padding;
+//     border: 1px solid $borderClr;
 
-    &:focus-visible {
-        outline: none;
-    }
+//     &:focus-visible {
+//         outline: none;
+//     }
 
-    @if $type ==regular {
-        border-radius: 0.25em;
+//     @if $type ==regular {
+//         border-radius: 0.25em;
 
-    }
+//     }
 
-    @else if $type ==round {
-        border-radius: 1em;
+//     @else if $type ==round {
+//         border-radius: 1em;
 
-    }
+//     }
 
-}
+// }
 
 
 
