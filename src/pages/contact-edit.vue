@@ -5,7 +5,7 @@
         class="contact-edit main-layout"
     >
         <h1>{{ getTitle }}</h1>
-        <img :src="'https://robohash.org/' + contactToEdit._id" alt="" />
+        <img :src="`https://api.dicebear.com/5.x/croodles/svg?seed=${contactToEdit.imgId}`" alt="" />
         <div class="input-container name">
             <label for="name">Name: </label>
             <input

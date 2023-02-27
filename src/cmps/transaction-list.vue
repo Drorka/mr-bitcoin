@@ -23,25 +23,23 @@ export default {
     },
     data() {
         return {
-        user: null,
-        transactions: [],
         }
     },
     computed : {
+        user() { return this.$store.getters.user },
+        transactions() {
+            if (this.contact) {
+                return this.user.transactions.filter(transaction => transaction.toId === this.contact._id)
+            } else {
+                return this.user.transactions.slice(-3)
+            }
+        },
         formatDate() {
         return (transaction) => utilService.getFormattedDate(transaction.at);
         }
-
     },
-    async created() {
-        this.user = this.$store.getters.user 
-        console.log(this.user);
-        // const user = await userService.get(userService.getLoggedinUser()._id)
-        if (this.contact) {
-        this.transactions = this.user.transactions.filter(transaction => transaction.toId === this.contact._id)
-        } else {
-            this.transactions = this.user.transactions.slice(-3)
-        }
+    created() {
+
     },
 }
 </script>

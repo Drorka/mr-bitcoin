@@ -38,13 +38,15 @@ export const userStore = {
 		async transfer(context, { contactId, contactName, amount }) {
 			console.log('context', context, 'data', contactId, contactName, amount)
 			try {
-				return userService
-					.transferFunds(contactId, contactName, amount)
-					.then((balance) => {
-						console.log('balance in then', balance)
-						context.commit({ type: 'setUserBalance', balance })
-						return balance
-					})
+				const user = await userService.transferFunds(
+					contactId,
+					contactName,
+					amount
+				)
+				let { balance } = user
+				context.commit({ type: 'setUserBalance', balance })
+				context.commit({ type: 'setUser', user })
+				return user
 			} catch (err) {
 				console.log('Failed to transfer funds', err)
 				throw err

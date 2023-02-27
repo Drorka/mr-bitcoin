@@ -16,7 +16,7 @@
             </div>
         </div>
             <div class="user-img-container">
-                <img  src="../assets/img/cryptocurrency-g1d7e4b128_1280.jpg" alt="bitcoin">
+                <img src="../assets/img/cryptocurrency-g1d7e4b128_1280.jpg" alt="bitcoin">
             </div>
     </section>
 </template>

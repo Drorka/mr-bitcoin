@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="transfer-funds">
         <form @submit.prevent="onTransfer"
             class="transfer-form">
             <div class="input-container">

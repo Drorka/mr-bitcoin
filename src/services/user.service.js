@@ -119,7 +119,7 @@ async function transferFunds(contactId, contactName, amount) {
 	currUser.balance -= amount
 	console.log('service curr user after', currUser.balance)
 	_saveLoggedinUser(currUser)
-	return currUser.balance
+	return currUser
 }
 
 function getTransactions() {

@@ -19,7 +19,7 @@
                 <RouterLink v-if="user" to="/login">Logout</RouterLink>
                 <RouterLink v-if="!user" to="/login">Login</RouterLink>
             </div>
-            <span v-if="rate">1$ = {{ rate }}₿</span>
+            <!-- <span v-if="rate">1$ = {{ rate }}₿</span> -->
         </div>
     </header>
 </template>
